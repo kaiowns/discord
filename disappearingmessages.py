@@ -11,8 +11,8 @@ intents = discord.Intents.default() intents.messages = True client = commands.Bo
 @client.event async def on_message(message): if message.author.id != client.user.id: return  # Ignore messages from other users.
 
 try:
-    await asyncio.sleep(DELETE_DELAY)  # Wait for the specified delay.
-    await message.delete()  # Delete the message.
+    await asyncio.sleep(DELETE_DELAY)  # Adjust the DELETE_DELAY to after how many seconds you want the message to disappear. Also note that you can only use seconds, for example(1s)
+    await message.delete()  # Deletes the message.
     print(f"Deleted message: {message.content}")
 except Exception as e:
     print(f"Failed to delete message: {e}")  # Error handling.
